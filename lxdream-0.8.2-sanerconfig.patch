@@ -1,0 +1,17 @@
+--- lxdream-0.8.2/lxdreamrc.orig	2007-10-16 13:38:01.000000000 +0100
++++ lxdream-0.8.2/lxdreamrc	2008-01-09 19:34:01.000000000 +0000
+@@ -1,9 +1,9 @@
+ [Global]
+-bios = bios/dcboot.rom
+-flash = bios/dcflash.rom
+-default path = disc
+-save path = save
+-bootstrap = bios/IP.BIN
++bios = .lxdream/bios/dcboot.rom
++flash = .lxdream/bios/dcflash.rom
++default path = .lxdream/disc
++save path = .lxdream/save
++bootstrap = .lxdream/bios/IP.BIN
+ 
+ [Controllers]
+ Device 0 = Sega Controller
