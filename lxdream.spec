@@ -8,6 +8,7 @@ URL:            http://www.lxdream.org
 # Actual source URL is: http://www.lxdream.org/count.php?file=lxdream-0.8.3.tar.gz
 Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
+Source2:        %{name}.desktop
 Patch0:         %{name}-0.8.2-sanerconfig.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  desktop-file-utils
