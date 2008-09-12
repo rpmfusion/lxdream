@@ -52,7 +52,7 @@ install -pm0644 %{SOURCE1} README.fedora
 
 desktop-file-install --vendor "" \
                      --dir %{buildroot}%{_datadir}/applications \
-                     %{name}.desktop
+                     %{SOURCE2}
 
 
 %clean
