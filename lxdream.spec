@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.8.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
@@ -37,19 +37,6 @@ make %{?_smp_mflags}
 # Create icon
 convert -scale 128 pixmaps/dcemu.gif %{name}.png
 
-# Build desktop icon
-cat >%{name}.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Name=LxDream
-GenericName=Sega Dreamcast Emulator
-Comment=%{summary}
-Exec=%{name}
-Icon=%{name}
-Terminal=false
-Type=Application
-Categories=Game;Emulator;
-EOF
 
 
 %install
@@ -62,7 +49,7 @@ install -pm0644 %{SOURCE1} README.dribble
 #Find locales
 %find_lang %{name}
 
-desktop-file-install --vendor dribble \
+desktop-file-install --vendor "" \
                      --dir %{buildroot}%{_datadir}/applications \
                      %{name}.desktop
 
@@ -89,13 +76,16 @@ fi
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
 %{_datadir}/icons/hicolor/128x128/apps/%{name}.png
-%{_datadir}/applications/dribble-%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
 %config(noreplace) %{_sysconfdir}/%{name}rc
 %doc RELEASE_NOTES STATUS CREDITS COPYING ChangeLog README.dribble
 %exclude %{_datadir}/pixmaps/%{name}/dcemu.gif
 
 
 %changelog
+* Fri Sep 12 2008 Xavier Lamien <lxtnow[at]gmail.com - 0.8.3-4
+- Update files and rebuild for rpmfusion inclusion.
+
 * Wed Mar 05 2008 Ian Chapman <packages[AT]amiga-hardware.com> 0.8.3-3
 - Exclusivearch x86/x86_64 for the moment. Others seem broken.
 
