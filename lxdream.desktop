@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=LxDream
+GenericName=Sega Dreamcast Emulator
+Comment=Sega Dreamcast emulator
+Exec=lxdream
+Icon=lxdream
+Terminal=false
+Type=Application
+Categories=Game;Emulator;
