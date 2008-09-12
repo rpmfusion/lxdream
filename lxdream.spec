@@ -7,7 +7,7 @@ License:        GPLv2+
 URL:            http://www.lxdream.org
 # Actual source URL is: http://www.lxdream.org/count.php?file=lxdream-0.8.3.tar.gz
 Source0:        %{name}-%{version}.tar.gz
-Source1:        README.rpmfusion
+Source1:        README.fedora
 Patch0:         %{name}-0.8.2-sanerconfig.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  desktop-file-utils
@@ -44,7 +44,7 @@ rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/128x128/apps
 install -pm0644 %{name}.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps
-install -pm0644 %{SOURCE1} README.rpmfusion
+install -pm0644 %{SOURCE1} README.fedora
 
 #Find locales
 %find_lang %{name}
@@ -78,7 +78,7 @@ fi
 %{_datadir}/icons/hicolor/128x128/apps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
 %config(noreplace) %{_sysconfdir}/%{name}rc
-%doc RELEASE_NOTES STATUS CREDITS COPYING ChangeLog README.rpmfusion
+%doc RELEASE_NOTES STATUS CREDITS COPYING ChangeLog README.fedora
 %exclude %{_datadir}/pixmaps/%{name}/dcemu.gif
 
 
