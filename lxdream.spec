@@ -1,11 +1,11 @@
 Name:           lxdream
-Version:        0.8.3
-Release:        4%{?dist}
+Version:        0.8.4
+Release:        1%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
 URL:            http://www.lxdream.org
-# Actual source URL is: http://www.lxdream.org/count.php?file=lxdream-0.8.3.tar.gz
+# Actual source URL is: http://www.lxdream.org/count.php?file=%{name}-%{version}.tar.gz
 Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
 Source2:        %{name}.desktop
@@ -17,6 +17,7 @@ BuildRequires:  gettext
 BuildRequires:  gtk2-devel
 BuildRequires:  ImageMagick
 BuildRequires:  libGL-devel
+BuildRequires:  pulseaudio-libs-devel
 Requires:       hicolor-icon-theme
 ExclusiveArch:  %{ix86} x86_64
 
@@ -78,12 +79,19 @@ fi
 %{_bindir}/%{name}
 %{_datadir}/icons/hicolor/128x128/apps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
+%{_mandir}/man1/%{name}.1*
+%{_datadir}/pixmaps/lxdream
 %config(noreplace) %{_sysconfdir}/%{name}rc
-%doc RELEASE_NOTES STATUS CREDITS COPYING ChangeLog README.fedora
+%doc COPYING ChangeLog README.fedora
 %exclude %{_datadir}/pixmaps/%{name}/dcemu.gif
 
 
 %changelog
+* Sun Oct 19 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.8.4-1
+- Updated to 0.8.4
+- Added pulseaudio-libs-devel to BuildRequires
+- Dropped some docs which were no longer available
+
 * Fri Sep 12 2008 Xavier Lamien <lxtnow[at]gmail.com - 0.8.3-4
 - Update files and rebuild for rpmfusion inclusion.
 
