@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.8.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
@@ -19,7 +19,9 @@ BuildRequires:  ImageMagick
 BuildRequires:  libGL-devel
 BuildRequires:  pulseaudio-libs-devel
 Requires:       hicolor-icon-theme
-ExclusiveArch:  %{ix86} x86_64
+# there should be a {ix86} instead of i386 in the ExclusiveArch line but
+# that would make plague build the package for athlon, i386, i586 and i686 :-/
+ExclusiveArch:  i386 x86_64
 
 %description
 lxdream is a linux-based emulator of the Sega Dreamcast system. While it is
@@ -87,6 +89,9 @@ fi
 
 
 %changelog
+* Sat Oct 25 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8.4-2
+- use i386 instead of ix86 for ExcludeArch
+
 * Sun Oct 19 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.8.4-1
 - Updated to 0.8.4
 - Added pulseaudio-libs-devel to BuildRequires
