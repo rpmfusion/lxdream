@@ -1,6 +1,6 @@
 Name:           lxdream
-Version:        0.8.4
-Release:        2%{?dist}
+Version:        0.9
+Release:        1%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
@@ -85,10 +85,13 @@ fi
 %{_datadir}/pixmaps/lxdream
 %config(noreplace) %{_sysconfdir}/%{name}rc
 %doc COPYING ChangeLog README.fedora
-%exclude %{_datadir}/pixmaps/%{name}/dcemu.gif
 
 
 %changelog
+* Tue Oct 28 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.9-1
+- Updated to 0.9
+- dcemu.gif is not installed anymore, so don't exclude it
+
 * Sat Oct 25 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8.4-2
 - use i386 instead of ix86 for ExcludeArch
 
