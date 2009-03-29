@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
@@ -88,6 +88,9 @@ fi
 
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.9-2
+- rebuild for new F11 features
+
 * Tue Oct 28 2008 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.9-1
 - Updated to 0.9
 - dcemu.gif is not installed anymore, so don't exclude it
