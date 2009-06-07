@@ -13,4 +13,3 @@ GL implementation for your graphics card is not sufficient.
 4. lxdream requires 'esound' for sound output. If you do not hear sound then
 you'll need to ensure that esound is running, particularly if you're using a
 desktop other than Gnome, such as KDE.
-
