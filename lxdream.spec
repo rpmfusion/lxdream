@@ -8,16 +8,15 @@ URL:            http://www.lxdream.org
 # Actual source URL is: http://www.lxdream.org/count.php?file=%{name}-%{version}.tar.gz
 Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
-Source2:        %{name}.desktop
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  desktop-file-utils
 BuildRequires:  esound-devel
 BuildRequires:  gettext
 BuildRequires:  gtk2-devel
-BuildRequires:  ImageMagick
 BuildRequires:  libGL-devel
+BuildRequires:  lirc-devel
 BuildRequires:  pulseaudio-libs-devel
-Requires:       hicolor-icon-theme
+BuildRequires:  SDL-devel
 # there should be a {ix86} instead of i386 in the ExclusiveArch line but
 # that would make plague build the package for athlon, i386, i586 and i686 :-/
 %if 0%{?fedora} >= 11
@@ -35,57 +34,40 @@ is already capable of running many demos and some games.
 %prep
 %setup -q
 
+#Fix the desktop file
+sed -i "s/Categories=Game;Emulator/Categories=Game;Emulator;/" lxdream.desktop
+
 
 %build
 %configure
 make %{?_smp_mflags}
 
-# Create icon
-convert -scale 128 pixmaps/dcemu.gif %{name}.png
-
-
 
 %install
 rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
-mkdir -p %{buildroot}%{_datadir}/icons/hicolor/128x128/apps
-install -pm0644 %{name}.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps
 install -pm0644 %{SOURCE1} README.fedora
+
+#Validate the desktop file
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 #Find locales
 %find_lang %{name}
-
-desktop-file-install --vendor "" \
-                     --dir %{buildroot}%{_datadir}/applications \
-                     %{SOURCE2}
 
 
 %clean
 rm -rf %{buildroot}
 
 
-%post
-touch --no-create %{_datadir}/icons/hicolor
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
-
-
-%postun
-touch --no-create %{_datadir}/icons/hicolor
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
-
-
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%{_bindir}/%{name}
-%{_datadir}/icons/hicolor/128x128/apps/%{name}.png
-%{_datadir}/applications/%{name}.desktop
-%{_mandir}/man1/%{name}.1*
+%{_bindir}/lxdream
+%{_libdir}/lxdream
+%{_datadir}/applications/lxdream.desktop
+%{_mandir}/man1/lxdream.1*
 %{_datadir}/pixmaps/lxdream
-%config(noreplace) %{_sysconfdir}/%{name}rc
+%{_datadir}/pixmaps/lxdream.png
+%config(noreplace) %{_sysconfdir}/lxdreamrc
 %doc COPYING ChangeLog README.fedora
 
 
@@ -94,6 +76,10 @@ fi
 - Updated to 0.9.1
 - Dropped the sanerconfig patch
 - Conditionalised the ExclusiveArch line
+- Dropped the icon conversion, upstream now ships a png one
+- Dropped hicolor-icon-theme from Requires
+- Dropped the desktop file, upstream now ships it as well
+- Added SDL-devel and lirc-devel to BuildRequires
 
 * Sun Apr 12 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.9-3
 - s/i386/i586/ in ExclusiveArch for F11
