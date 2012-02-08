@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Sega Dreamcast emulator
 Group:          Applications/Emulators
 License:        GPLv2+
@@ -72,6 +72,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Feb 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.9.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Thu Jul 09 2009 Julian Sikorski <belegdol[at]gmail[dot]com> - 0.9.1-1
 - Updated to 0.9.1
 - Dropped the sanerconfig patch
