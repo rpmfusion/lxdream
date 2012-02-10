@@ -1,0 +1,320 @@
+diff -up lxdream-0.9.1/src/aica/audio.c.glib lxdream-0.9.1/src/aica/audio.c
+--- lxdream-0.9.1/src/aica/audio.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/aica/audio.c	2012-02-10 23:53:11.504591482 +0100
+@@ -19,7 +19,6 @@
+ 
+ #include "aica/aica.h"
+ #include "aica/audio.h"
+-#include <glib/gmem.h>
+ #include "dream.h"
+ #include <assert.h>
+ #include <string.h>
+diff -up lxdream-0.9.1/src/aica/audio.h.glib lxdream-0.9.1/src/aica/audio.h
+--- lxdream-0.9.1/src/aica/audio.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/aica/audio.h	2012-02-10 23:53:11.504591482 +0100
+@@ -20,7 +20,6 @@
+ 
+ #include <stdint.h>
+ #include <stdio.h>
+-#include <glib/gtypes.h>
+ #include "gettext.h"
+ #include "plugin.h"
+ 
+diff -up lxdream-0.9.1/src/config.c.glib lxdream-0.9.1/src/config.c
+--- lxdream-0.9.1/src/config.c.glib	2009-06-26 07:47:06.000000000 +0200
++++ lxdream-0.9.1/src/config.c	2012-02-10 23:53:11.505591488 +0100
+@@ -21,8 +21,6 @@
+ #include <errno.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include "dream.h"
+diff -up lxdream-0.9.1/src/config.h.glib lxdream-0.9.1/src/config.h
+--- lxdream-0.9.1/src/config.h.glib	2009-06-26 07:47:06.000000000 +0200
++++ lxdream-0.9.1/src/config.h	2012-02-10 23:53:11.506591494 +0100
+@@ -19,8 +19,7 @@
+ #ifndef lxdream_config_H
+ #define lxdream_config_H 1
+ 
+-#include <glib/gtypes.h>
+-#include <glib/glist.h>
++#include <glib.h>
+ #include "gettext.h"
+ 
+ #ifdef __cplusplus
+diff -up lxdream-0.9.1/src/drivers/input_lirc.c.glib lxdream-0.9.1/src/drivers/input_lirc.c
+--- lxdream-0.9.1/src/drivers/input_lirc.c.glib	2009-06-28 12:29:06.000000000 +0200
++++ lxdream-0.9.1/src/drivers/input_lirc.c	2012-02-10 23:53:11.507591499 +0100
+@@ -28,9 +28,6 @@
+ #include <dirent.h>
+ #include <ctype.h>
+ 
+-#include <glib/giochannel.h>
+-#include <glib.h>
+-
+ #include <lirc/lirc_client.h>
+ 
+ #include "lxdream.h"
+diff -up lxdream-0.9.1/src/drivers/joy_linux.c.glib lxdream-0.9.1/src/drivers/joy_linux.c
+--- lxdream-0.9.1/src/drivers/joy_linux.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/drivers/joy_linux.c	2012-02-10 23:53:11.507591499 +0100
+@@ -32,8 +32,6 @@
+ #include <ctype.h>
+ 
+ #include <linux/joystick.h>
+-#include <glib/giochannel.h>
+-#include <glib.h>
+ 
+ #include "lxdream.h"
+ #include "display.h"
+diff -up lxdream-0.9.1/src/gdlist.c.glib lxdream-0.9.1/src/gdlist.c
+--- lxdream-0.9.1/src/gdlist.c.glib	2009-06-24 08:06:43.000000000 +0200
++++ lxdream-0.9.1/src/gdlist.c	2012-02-10 23:53:11.508591504 +0100
+@@ -19,7 +19,6 @@
+ 
+ #include <string.h>
+ #include <stdlib.h>
+-#include <glib/gstrfuncs.h>
+ #include <libgen.h>
+ #include "gettext.h"
+ #include "gdrom/gdrom.h"
+diff -up lxdream-0.9.1/src/gdrom/gddriver.h.glib lxdream-0.9.1/src/gdrom/gddriver.h
+--- lxdream-0.9.1/src/gdrom/gddriver.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/gdrom/gddriver.h	2012-02-10 23:53:11.508591504 +0100
+@@ -24,7 +24,6 @@
+ #include <stdio.h>
+ #include "lxdream.h"
+ #include "gdrom/gdrom.h"
+-#include <glib/gstrfuncs.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
+diff -up lxdream-0.9.1/src/gdrom/gdi.c.glib lxdream-0.9.1/src/gdrom/gdi.c
+--- lxdream-0.9.1/src/gdrom/gdi.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/gdrom/gdi.c	2012-02-10 23:53:11.509591510 +0100
+@@ -23,7 +23,6 @@
+ #include <fcntl.h>
+ #include <errno.h>
+ #include <sys/stat.h>
+-#include <glib/gutils.h>
+ #include "gdrom/gddriver.h"
+ 
+ 
+diff -up lxdream-0.9.1/src/gdrom/gdrom.c.glib lxdream-0.9.1/src/gdrom/gdrom.c
+--- lxdream-0.9.1/src/gdrom/gdrom.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/gdrom/gdrom.c	2012-02-10 23:53:11.509591510 +0100
+@@ -20,7 +20,6 @@
+ #include <fcntl.h>
+ #include <errno.h>
+ #include <ctype.h>
+-#include <glib/gutils.h>
+ #include "gdrom/ide.h"
+ #include "gdrom/gdrom.h"
+ #include "gdrom/gddriver.h"
+diff -up lxdream-0.9.1/src/gdrom/gdrom.h.glib lxdream-0.9.1/src/gdrom/gdrom.h
+--- lxdream-0.9.1/src/gdrom/gdrom.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/gdrom/gdrom.h	2012-02-10 23:53:11.509591510 +0100
+@@ -22,7 +22,6 @@
+ 
+ #include "lxdream.h"
+ #include "hook.h"
+-#include <glib/glist.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
+diff -up lxdream-0.9.1/src/gdrom/nrg.c.glib lxdream-0.9.1/src/gdrom/nrg.c
+--- lxdream-0.9.1/src/gdrom/nrg.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/gdrom/nrg.c	2012-02-10 23:53:11.509591510 +0100
+@@ -20,7 +20,6 @@
+ #include <assert.h>
+ #include <stdio.h>
+ #include <errno.h>
+-#include <glib/gtypes.h>
+ #include "gdrom/gddriver.h"
+ #include "dream.h"
+ 
+diff -up lxdream-0.9.1/src/gui.h.glib lxdream-0.9.1/src/gui.h
+--- lxdream-0.9.1/src/gui.h.glib	2009-06-26 07:47:06.000000000 +0200
++++ lxdream-0.9.1/src/gui.h	2012-02-10 23:53:11.510591516 +0100
+@@ -19,7 +19,7 @@
+ #ifndef lxdream_gui_H
+ #define lxdream_gui_H
+ 
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
+diff -up lxdream-0.9.1/src/loader.h.glib lxdream-0.9.1/src/loader.h
+--- lxdream-0.9.1/src/loader.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/loader.h	2012-02-10 23:53:11.511591522 +0100
+@@ -20,7 +20,7 @@
+ #define lxdream_loader_H 1
+ 
+ #include <stdio.h>
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
+diff -up lxdream-0.9.1/src/lxdream.h.glib lxdream-0.9.1/src/lxdream.h
+--- lxdream-0.9.1/src/lxdream.h.glib	2009-06-26 07:47:06.000000000 +0200
++++ lxdream-0.9.1/src/lxdream.h	2012-02-10 23:53:11.511591522 +0100
+@@ -20,7 +20,7 @@
+ #define lxdream_lxdream_H 1
+ 
+ #include <stdint.h>
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ #include "../config.h"
+ 
+diff -up lxdream-0.9.1/src/lxpaths.c.glib lxdream-0.9.1/src/lxpaths.c
+--- lxdream-0.9.1/src/lxpaths.c.glib	2009-06-29 01:04:40.000000000 +0200
++++ lxdream-0.9.1/src/lxpaths.c	2012-02-10 23:53:11.511591522 +0100
+@@ -19,8 +19,6 @@
+ #include <ctype.h>
+ #include <unistd.h>
+ #include <wordexp.h>
+-#include <glib/gstrfuncs.h>
+-#include <glib/gutils.h>
+ 
+ #include "gui.h"
+ #include "config.h"
+diff -up lxdream-0.9.1/src/maple/maple.c.glib lxdream-0.9.1/src/maple/maple.c
+--- lxdream-0.9.1/src/maple/maple.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/maple/maple.c	2012-02-10 23:53:11.512591528 +0100
+@@ -18,7 +18,6 @@
+ #define MODULE maple_module
+ 
+ #include <assert.h>
+-#include <glib/gstrfuncs.h>
+ #include "dream.h"
+ #include "mem.h"
+ #include "asic.h"
+diff -up lxdream-0.9.1/src/mem.c.glib lxdream-0.9.1/src/mem.c
+--- lxdream-0.9.1/src/mem.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/mem.c	2012-02-10 23:53:11.512591528 +0100
+@@ -20,7 +20,6 @@
+ #include <sys/types.h>
+ #include <sys/mman.h>
+ #include <sys/stat.h>
+-#include <glib/gstrfuncs.h>
+ #include <assert.h>
+ #include <stdint.h>
+ #include <stdlib.h>
+diff -up lxdream-0.9.1/src/paths_unix.c.glib lxdream-0.9.1/src/paths_unix.c
+--- lxdream-0.9.1/src/paths_unix.c.glib	2009-06-25 03:15:28.000000000 +0200
++++ lxdream-0.9.1/src/paths_unix.c	2012-02-10 23:53:11.512591528 +0100
+@@ -18,7 +18,6 @@
+ 
+ #include <string.h>
+ #include <stdlib.h>
+-#include <glib/gstrfuncs.h>
+ 
+ #include "lxdream.h"
+ #include "config.h"
+@@ -47,4 +46,4 @@ const char *get_user_data_path()
+         user_data_path = g_strdup_printf( "%s/.lxdream", home );
+     }
+     return user_data_path;
+-}
+\ Brak znaku nowej linii na końcu pliku
++}
+diff -up lxdream-0.9.1/src/plugin.c.glib lxdream-0.9.1/src/plugin.c
+--- lxdream-0.9.1/src/plugin.c.glib	2009-06-26 07:47:07.000000000 +0200
++++ lxdream-0.9.1/src/plugin.c	2012-02-10 23:53:11.513591534 +0100
+@@ -20,8 +20,6 @@
+ #include <dirent.h>
+ #include <dlfcn.h>
+ #include <string.h>
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
+ #include "plugin.h"
+ #include "lxpaths.h"
+ 
+diff -up lxdream-0.9.1/src/pvr2/glutil.c.glib lxdream-0.9.1/src/pvr2/glutil.c
+--- lxdream-0.9.1/src/pvr2/glutil.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/pvr2/glutil.c	2012-02-10 23:53:11.513591534 +0100
+@@ -17,7 +17,6 @@
+  */
+ 
+ #include <string.h>
+-#include <glib/gstrfuncs.h>
+ #include "pvr2/glutil.h"
+ 
+ gboolean isGLSecondaryColorSupported()
+diff -up lxdream-0.9.1/src/sh4/sh4core.h.glib lxdream-0.9.1/src/sh4/sh4core.h
+--- lxdream-0.9.1/src/sh4/sh4core.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/sh4/sh4core.h	2012-02-10 23:53:11.513591534 +0100
+@@ -19,7 +19,6 @@
+ #ifndef lxdream_sh4core_H
+ #define lxdream_sh4core_H 1
+ 
+-#include <glib/gtypes.h>
+ #include <stdint.h>
+ #include <stdio.h>
+ #include "mem.h"
+diff -up lxdream-0.9.1/src/syscall.h.glib lxdream-0.9.1/src/syscall.h
+--- lxdream-0.9.1/src/syscall.h.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/syscall.h	2012-02-10 23:53:11.514591540 +0100
+@@ -20,7 +20,7 @@
+ #define lxdream_syscall_H 1
+ 
+ #include <stdint.h>
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
+diff -up lxdream-0.9.1/src/tools/actparse.c.glib lxdream-0.9.1/src/tools/actparse.c
+--- lxdream-0.9.1/src/tools/actparse.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/tools/actparse.c	2012-02-10 23:53:11.514591540 +0100
+@@ -21,7 +21,7 @@
+ #include <string.h>
+ #include <ctype.h>
+ #include <sys/stat.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include "tools/gendec.h"
+ 
+ static int add_action( struct action *actions, struct ruleset *rules, char *operation, const char *file, int line, char *action )
+diff -up lxdream-0.9.1/src/tools/gendec.c.glib lxdream-0.9.1/src/tools/gendec.c
+--- lxdream-0.9.1/src/tools/gendec.c.glib	2009-06-24 04:48:00.000000000 +0200
++++ lxdream-0.9.1/src/tools/gendec.c	2012-02-10 23:53:11.514591540 +0100
+@@ -23,7 +23,7 @@
+ #include <getopt.h>
+ #include <errno.h>
+ #include <ctype.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <assert.h>
+ #include "tools/gendec.h"
+ 
+diff -up lxdream-0.9.1/src/vmu/vmulist.c.glib lxdream-0.9.1/src/vmu/vmulist.c
+--- lxdream-0.9.1/src/vmu/vmulist.c.glib	2009-06-24 07:10:27.000000000 +0200
++++ lxdream-0.9.1/src/vmu/vmulist.c	2012-02-10 23:53:11.514591540 +0100
+@@ -18,8 +18,6 @@
+ 
+ #include <string.h>
+ #include <stdlib.h>
+-#include <glib/glist.h>
+-#include <glib/gstrfuncs.h>
+ #include "vmulist.h"
+ #include "config.h"
+ 
+diff -up lxdream-0.9.1/src/vmu/vmuvol.c.glib lxdream-0.9.1/src/vmu/vmuvol.c
+--- lxdream-0.9.1/src/vmu/vmuvol.c.glib	2009-06-29 01:04:40.000000000 +0200
++++ lxdream-0.9.1/src/vmu/vmuvol.c	2012-02-10 23:53:11.515591546 +0100
+@@ -16,8 +16,6 @@
+  * GNU General Public License for more details.
+  */
+ 
+-#include <glib/gmem.h>
+-#include <glib/gstrfuncs.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <stdio.h>

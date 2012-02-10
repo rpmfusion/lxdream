@@ -1,14 +1,14 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Sega Dreamcast emulator
-Group:          Applications/Emulators
 License:        GPLv2+
 URL:            http://www.lxdream.org
 # Actual source URL is: http://www.lxdream.org/count.php?file=%{name}-%{version}.tar.gz
 Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Patch0:         %{name}-%{version}-glib.patch
+Patch1:         %{name}-%{version}-implicit.patch
 BuildRequires:  desktop-file-utils
 BuildRequires:  esound-devel
 BuildRequires:  gettext
@@ -33,6 +33,8 @@ is already capable of running many demos and some games.
 
 %prep
 %setup -q
+%patch0 -p1 -b .glib
+%patch1 -p1 -b .implicit
 
 #Fix the desktop file
 sed -i "s/Categories=Game;Emulator/Categories=Game;Emulator;/" lxdream.desktop
@@ -55,12 +57,7 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 %find_lang %{name}
 
 
-%clean
-rm -rf %{buildroot}
-
-
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %{_bindir}/lxdream
 %{_libdir}/lxdream
 %{_datadir}/applications/lxdream.desktop
@@ -72,6 +69,10 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Feb 10 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-3
+- Fixed build failures
+- Dropped obsolete Group, Buildroot, %%clean and %%defattr
+
 * Wed Feb 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.9.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
