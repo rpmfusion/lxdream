@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -19,11 +19,7 @@ BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  SDL-devel
 # there should be a {ix86} instead of i386 in the ExclusiveArch line but
 # that would make plague build the package for athlon, i386, i586 and i686 :-/
-%if 0%{?fedora} >= 11
-ExclusiveArch:  i586 x86_64
-%else
-ExclusiveArch:  i386 x86_64
-%endif
+ExclusiveArch:  i686 x86_64
 
 %description
 lxdream is a linux-based emulator of the Sega Dreamcast system. While it is
@@ -69,6 +65,9 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Sat Feb 11 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-4
+- Ensured the i686 version is built as well
+
 * Fri Feb 10 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-3
 - Fixed build failures
 - Dropped obsolete Group, Buildroot, %%clean and %%defattr
