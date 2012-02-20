@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -65,6 +65,9 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Mon Feb 20 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.9.1-5
+- Rebuilt for devel/F-17 inter-branch
+
 * Sat Feb 11 2012 Julian Sikorski <belegdol@fedoraproject.org> - 0.9.1-4
 - Ensured the i686 version is built as well
 
