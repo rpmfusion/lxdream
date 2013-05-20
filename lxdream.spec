@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -10,11 +10,11 @@ Source1:        README.fedora
 Patch0:         %{name}-%{version}-glib.patch
 Patch1:         %{name}-%{version}-implicit.patch
 BuildRequires:  desktop-file-utils
-BuildRequires:  esound-devel
 BuildRequires:  gettext
 BuildRequires:  gtk2-devel
 BuildRequires:  libGL-devel
 BuildRequires:  lirc-devel
+BuildRequires:  perl(Pod::Man)
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  SDL-devel
 # there should be a {ix86} instead of i386 in the ExclusiveArch line but
@@ -65,6 +65,10 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Mon May 20 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.9.1-8
+- Rebuilt and drop esound support
+- Add BR perl(Pod::Man) for lxdream.pod
+
 * Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.9.1-7
 - Mass rebuilt for Fedora 19 Features
 
