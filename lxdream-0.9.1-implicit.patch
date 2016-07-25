@@ -1,6 +1,27 @@
+Fix "relocation R_X86_64_PC32 against undefined symbol `uncompress' can not be used
+ when making a shared object; recompile with -fPIC" by not overwrite CFLAGS.
 diff -up lxdream-0.9.1/configure.implicit lxdream-0.9.1/configure
 --- lxdream-0.9.1/configure.implicit	2009-06-28 12:29:06.000000000 +0200
 +++ lxdream-0.9.1/configure	2012-02-11 00:21:17.719647658 +0100
+@@ -7780,15 +7780,15 @@ _ACEOF
+ 
+ fi
+ 
+-CFLAGS="-g -fexceptions"
+-OBJCFLAGS="-g -fexceptions"
++CFLAGS+=" -g -fexceptions"
++OBJCFLAGS+=" -g -fexceptions"
+ 
+ cat >>confdefs.h <<\_ACEOF
+ #define HAVE_EXCEPTIONS 1
+ _ACEOF
+ 
+ 
+-STDCFLAG="-std=c99"
++STDCFLAG+=" -std=c99"
+ 
+ _GCC_VERSION=`$CC --version | $SED -ne '/gcc/p'`
+ _ICC_VERSION=`$CC --version | $SED -ne '/(ICC)/p'`
 @@ -9116,6 +9116,8 @@ _ACEOF
  
  fi

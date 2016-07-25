@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -17,6 +17,7 @@ BuildRequires:  lirc-devel
 BuildRequires:  perl(Pod::Man)
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  SDL-devel
+BuildRequires:  zlib-devel
 # there should be a {ix86} instead of i386 in the ExclusiveArch line but
 # that would make plague build the package for athlon, i386, i586 and i686 :-/
 ExclusiveArch:  i686 x86_64
@@ -65,6 +66,10 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Mon Jul 25 2016 Sérgio Basto <sergio@serjux.com> - 0.9.1-10
+- Fix another "relocation R_X86_64_PC32 against undefined symbol recompile with
+  -fPIC"
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 0.9.1-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
