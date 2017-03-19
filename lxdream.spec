@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -66,6 +66,9 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Sun Mar 19 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.9.1-11
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Jul 25 2016 Sérgio Basto <sergio@serjux.com> - 0.9.1-10
 - Fix another "relocation R_X86_64_PC32 against undefined symbol recompile with
   -fPIC"
