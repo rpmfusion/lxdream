@@ -9,6 +9,7 @@ Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
 Patch0:         %{name}-%{version}-glib.patch
 Patch1:         %{name}-%{version}-implicit.patch
+BuildRequires:  gcc
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 BuildRequires:  gtk2-devel
