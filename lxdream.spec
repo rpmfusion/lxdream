@@ -31,8 +31,8 @@ is already capable of running many demos and some games.
 
 %prep
 %setup -q
-%patch0 -p1 -b .glib
-%patch1 -p1 -b .implicit
+%patch -P0 -p1 -b .glib
+%patch -P1 -p1 -b .implicit
 
 #Fix the desktop file
 sed -i "s/Categories=Game;Emulator/Categories=Game;Emulator;/" lxdream.desktop
