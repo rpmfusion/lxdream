@@ -1,0 +1,11 @@
+--- lxdream-0.9.1/src/gtkui/gtk_ctrl.c.cast	2009-06-29 08:04:40.000000000 +0900
++++ lxdream-0.9.1/src/gtkui/gtk_ctrl.c	2024-10-12 22:56:06.019903467 +0900
+@@ -310,7 +310,7 @@ static gboolean maple_device_changed( Gt
+                         MAPLE_VMU_HAS_NAME(maple_data[i].new_device, vmu_filename) ) {
+                     maple_data[i].new_device->destroy(maple_data[i].new_device);
+                     maple_data[i].new_device = NULL;
+-                    gtk_combo_box_set_active(maple_data[i].combo,0);
++                    gtk_combo_box_set_active(GTK_COMBO_BOX(maple_data[i].combo),0);
+                 }
+             }
+             MAPLE_SET_VMU_NAME(data->new_device,vmu_filename);

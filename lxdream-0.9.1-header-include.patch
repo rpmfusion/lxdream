@@ -1,0 +1,10 @@
+--- lxdream-0.9.1/src/gdrom/gdrom.c.include	2024-10-12 22:44:53.722357545 +0900
++++ lxdream-0.9.1/src/gdrom/gdrom.c	2024-10-12 22:58:30.514235708 +0900
+@@ -20,6 +20,7 @@
+ #include <fcntl.h>
+ #include <errno.h>
+ #include <ctype.h>
++#include <arpa/inet.h>
+ #include "gdrom/ide.h"
+ #include "gdrom/gdrom.h"
+ #include "gdrom/gddriver.h"

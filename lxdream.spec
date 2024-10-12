@@ -1,6 +1,6 @@
 Name:           lxdream
 Version:        0.9.1
-Release:        25%{?dist}
+Release:        26%{?dist}
 Summary:        Sega Dreamcast emulator
 License:        GPLv2+
 URL:            http://www.lxdream.org
@@ -9,6 +9,10 @@ Source0:        %{name}-%{version}.tar.gz
 Source1:        README.fedora
 Patch0:         %{name}-%{version}-glib.patch
 Patch1:         %{name}-%{version}-implicit.patch
+# Fix -Werror=incompatible-pointer-types
+Patch2:         %{name}-%{version}-pointer-type-cast.patch
+# Fix -Werror=implicit-function-declaration
+Patch3:         %{name}-%{version}-header-include.patch
 BuildRequires:  gcc
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
@@ -33,6 +37,8 @@ is already capable of running many demos and some games.
 %setup -q
 %patch -P0 -p1 -b .glib
 %patch -P1 -p1 -b .implicit
+%patch -P2 -p1 -b .cast
+%patch -P3 -p1 -b .include
 
 #Fix the desktop file
 sed -i "s/Categories=Game;Emulator/Categories=Game;Emulator;/" lxdream.desktop
@@ -67,6 +73,10 @@ desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/lxdream.desktop
 
 
 %changelog
+* Sat Oct 12 2024 Mamoru TASAKA <mtasaka@fedoraproject.org> - 0.9.1-26
+- Fix for -Werror=incompatible-pointer-types
+- Fix for -Werror=implicit-function-declaration
+
 * Fri Aug 02 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.9.1-25
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
